@@ -1,0 +1,127 @@
+m255
+K4
+z2
+!s11e MIXED_VERSIONS
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/Daniel Lourenço/Desktop/elevator_state-machine/simulation/qsim
+Eelevador
+Z0 w1666051280
+Z1 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
+Z2 DPx8 cyclonev 18 cyclonev_atom_pack 0 22 3HQPc5MVbmOPN?>a5EBYj2
+Z3 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
+Z4 DPx8 cyclonev 19 cyclonev_components 0 22 jZ]H46BQLgIP5mfRTO`3B1
+Z5 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z6 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+Z7 DPx12 altera_lnsim 23 altera_lnsim_components 0 22 ^Ch;U@;bMk1;>A2B<UV`k2
+!i122 26
+Z8 dC:/Users/anacl/Downloads/elevator_state-machine/elevator_state-machine/simulation/qsim
+Z9 8elevador.vho
+Z10 Felevador.vho
+l0
+L37 1
+VGAaTlOz]lOz35:^MGVkNo0
+!s100 Fhm13VZ1FB>61gKF[lziG0
+Z11 OV;C;2020.1;71
+32
+Z12 !s110 1666051281
+!i10b 1
+Z13 !s108 1666051281.000000
+Z14 !s90 -work|work|elevador.vho|
+Z15 !s107 elevador.vho|
+!i113 1
+Z16 o-work work
+Z17 tExplicit 1 CvgOpt 0
+Astructure
+R1
+R2
+R3
+R4
+R5
+R6
+R7
+DEx4 work 8 elevador 0 22 GAaTlOz]lOz35:^MGVkNo0
+!i122 26
+l65
+L45 109
+V]B6d]P9RVj2ggOQJgh67F1
+!s100 lDkH5nOnFNV5fIWC0Fn470
+R11
+32
+R12
+!i10b 1
+R13
+R14
+R15
+!i113 1
+R16
+R17
+Eelevador_vhd_vec_tst
+Z18 w1666051279
+R5
+R6
+!i122 27
+R8
+Z19 8Waveform4.vwf.vht
+Z20 FWaveform4.vwf.vht
+l0
+L32 1
+V6zURB;DCBjcg4D_;UP[;D1
+!s100 Qe@LO7iz_hc_H4Nn4mYh20
+R11
+32
+R12
+!i10b 1
+R13
+Z21 !s90 -work|work|Waveform4.vwf.vht|
+Z22 !s107 Waveform4.vwf.vht|
+!i113 1
+R16
+R17
+Aelevador_arch
+R5
+R6
+Z23 DEx4 work 20 elevador_vhd_vec_tst 0 22 6zURB;DCBjcg4D_;UP[;D1
+!i122 27
+l47
+Z24 L34 34
+Z25 VC=[c:1mkXi3IQ:GG;[];D1
+Z26 !s100 e;Po9PiQ>LcBPimXVTRfh0
+R11
+32
+R12
+!i10b 1
+R13
+R21
+R22
+!i113 1
+R16
+R17
+velevador_vlg_vec_tst
+!s110 1666027580
+!i10b 1
+!s100 io]MA5CF;fh;L1:3f5_0H0
+!s11b Dg1SIo80bB@j0V0VzS_@n1
+I:A>>d<NR<e1NhK7XOWl361
+VDg1SIo80bB@j0V0VzS_@n1
+R8
+w1666027578
+8Waveform.vwf.vt
+FWaveform.vwf.vt
+!i122 9
+L0 30 28
+OV;L;2020.1;71
+r1
+!s85 0
+31
+!s108 1666027580.000000
+!s107 Waveform.vwf.vt|
+!s90 -work|work|Waveform.vwf.vt|
+!i113 1
+R16
+tCvgOpt 0
