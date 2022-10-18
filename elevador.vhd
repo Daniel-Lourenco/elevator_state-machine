@@ -4,7 +4,7 @@ USE IEEE.STD_LOGIC_1164.ALL;
 ENTITY elevador IS
  
  PORT ( clk: IN std_logic;
-	andar_selecionado: BUFFER std_logic_vector(0 to 2) := "101");  -- andar_selecionado[0] - Andar 1,
+	andar_selecionado: INOUT std_logic_vector(0 to 2) := "101");  -- andar_selecionado[0] - Andar 1,
 																					   -- andar_selecionado[1] - Andar 2,
 																					   -- andar_selecionado[2] - Andar 3,
 																				  

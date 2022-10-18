@@ -1,5 +1,5 @@
 Analysis & Synthesis report for elevador
-Mon Oct 17 21:34:52 2022
+Tue Oct 18 08:07:10 2022
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -45,7 +45,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Oct 17 21:34:52 2022       ;
+; Analysis & Synthesis Status     ; Successful - Tue Oct 18 08:07:10 2022       ;
 ; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                   ; elevador                                    ;
 ; Top-level Entity Name           ; elevador                                    ;
@@ -199,8 +199,8 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;                             ;
 ; Maximum fan-out node                        ; andar_selecionado[2]~output ;
 ; Maximum fan-out                             ; 1                           ;
-; Total fan-out                               ; 4                           ;
-; Average fan-out                             ; 0.50                        ;
+; Total fan-out                               ; 7                           ;
+; Average fan-out                             ; 0.64                        ;
 +---------------------------------------------+-----------------------------+
 
 
@@ -219,34 +219,31 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------+---------------------------------------------+
 ; Register name                          ; Reason for Removal                          ;
 +----------------------------------------+---------------------------------------------+
-; andar_atual[3..31]                     ; Merged with andar_atual[2]                  ;
-; andar_anterior[3..31]                  ; Merged with andar_anterior[2]               ;
+; andar_atual[2..9,11..31]               ; Merged with andar_atual[10]                 ;
+; andar_anterior[2..9,11..31]            ; Merged with andar_anterior[10]              ;
+; andar_atual[10]                        ; Stuck at GND due to stuck port data_in      ;
+; andar_anterior[10]                     ; Stuck at GND due to stuck port data_in      ;
 ; andar_selecionado[2]~reg0              ; Stuck at GND due to stuck port data_in      ;
+; andar_selecionado[1]~reg0              ; Stuck at GND due to stuck port data_in      ;
 ; andar_selecionado[0]~reg0              ; Stuck at GND due to stuck port data_in      ;
-; andar_atual[2]                         ; Stuck at GND due to stuck port data_in      ;
-; andar_anterior[2]                      ; Stuck at GND due to stuck port data_in      ;
-; andar_atual[0]                         ; Stuck at GND due to stuck port data_in      ;
 ; andar_anterior[1]                      ; Stuck at GND due to stuck port clock_enable ;
 ; andar_anterior[0]                      ; Stuck at VCC due to stuck port clock_enable ;
-; andar_selecionado[1]~reg0              ; Stuck at GND due to stuck port data_in      ;
-; andar_atual[1]                         ; Lost fanout                                 ;
+; andar_atual[0,1]                       ; Lost fanout                                 ;
 ; sentido                                ; Lost fanout                                 ;
 ; Total Number of Removed Registers = 68 ;                                             ;
 +----------------------------------------+---------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                              ;
-+---------------------------+---------------------------+----------------------------------------------------------------------------------+
-; Register name             ; Reason for Removal        ; Registers Removed due to This Register                                           ;
-+---------------------------+---------------------------+----------------------------------------------------------------------------------+
-; andar_selecionado[2]~reg0 ; Stuck at GND              ; andar_anterior[2], andar_anterior[1], andar_anterior[0], andar_atual[1], sentido ;
-;                           ; due to stuck port data_in ;                                                                                  ;
-; andar_selecionado[0]~reg0 ; Stuck at GND              ; andar_selecionado[1]~reg0                                                        ;
-;                           ; due to stuck port data_in ;                                                                                  ;
-; andar_atual[2]            ; Stuck at GND              ; andar_atual[0]                                                                   ;
-;                           ; due to stuck port data_in ;                                                                                  ;
-+---------------------------+---------------------------+----------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                      ;
++---------------------------+---------------------------+------------------------------------------------------------------------------------------+
+; Register name             ; Reason for Removal        ; Registers Removed due to This Register                                                   ;
++---------------------------+---------------------------+------------------------------------------------------------------------------------------+
+; andar_atual[10]           ; Stuck at GND              ; andar_anterior[10], andar_anterior[1], andar_anterior[0], andar_atual[0], andar_atual[1] ;
+;                           ; due to stuck port data_in ;                                                                                          ;
+; andar_selecionado[2]~reg0 ; Stuck at GND              ; sentido                                                                                  ;
+;                           ; due to stuck port data_in ;                                                                                          ;
++---------------------------+---------------------------+------------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -266,17 +263,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
-+-----------------------+-----------------------------+
-; Type                  ; Count                       ;
-+-----------------------+-----------------------------+
-; arriav_lcell_comb     ; 1                           ;
-;     normal            ; 1                           ;
-;         0 data inputs ; 1                           ;
-; boundary_port         ; 4                           ;
-;                       ;                             ;
-; Max LUT depth         ; 0.00                        ;
-; Average LUT depth     ; 0.00                        ;
-+-----------------------+-----------------------------+
++-------------------+---------------------------------+
+; Type              ; Count                           ;
++-------------------+---------------------------------+
+; arriav_io_obuf    ; 3                               ;
+; boundary_port     ; 4                               ;
+;                   ;                                 ;
+; Max LUT depth     ; 0.00                            ;
+; Average LUT depth ; 0.00                            ;
++-------------------+---------------------------------+
 
 
 +-------------------------------+
@@ -294,32 +289,41 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Mon Oct 17 21:34:36 2022
+    Info: Processing started: Tue Oct 18 08:06:59 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off elevador -c elevador
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Warning (12019): Can't analyze file -- file elevador2.vhd is missing
 Warning (12019): Can't analyze file -- file wait_statement.vhd is missing
 Warning (12125): Using design file elevador.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
-    Info (12022): Found design unit 1: elevador-ans File: C:/Users/anacl/Downloads/elevator_state-machine/elevator_state-machine/elevador.vhd Line: 14
+    Info (12022): Found design unit 1: elevador-ans File: C:/Users/anacl/Downloads/elevator_state-machine/elevator_state-machine/elevador.vhd Line: 13
     Info (12023): Found entity 1: elevador File: C:/Users/anacl/Downloads/elevator_state-machine/elevator_state-machine/elevador.vhd Line: 4
 Info (12127): Elaborating entity "elevador" for the top level hierarchy
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "andar_selecionado[2]" is stuck at GND File: C:/Users/anacl/Downloads/elevator_state-machine/elevator_state-machine/elevador.vhd Line: 25
-    Warning (13410): Pin "andar_selecionado[1]" is stuck at GND File: C:/Users/anacl/Downloads/elevator_state-machine/elevator_state-machine/elevador.vhd Line: 25
-    Warning (13410): Pin "andar_selecionado[0]" is stuck at GND File: C:/Users/anacl/Downloads/elevator_state-machine/elevator_state-machine/elevador.vhd Line: 25
-Info (17049): 2 registers lost all their fanouts during netlist optimizations.
+Warning (13034): The following nodes have both tri-state and non-tri-state drivers
+    Warning (13035): Inserted always-enabled tri-state buffer between "andar_selecionado[2]" and its non-tri-state driver. File: C:/Users/anacl/Downloads/elevator_state-machine/elevator_state-machine/elevador.vhd Line: 24
+    Warning (13035): Inserted always-enabled tri-state buffer between "andar_selecionado[1]" and its non-tri-state driver. File: C:/Users/anacl/Downloads/elevator_state-machine/elevator_state-machine/elevador.vhd Line: 24
+    Warning (13035): Inserted always-enabled tri-state buffer between "andar_selecionado[0]" and its non-tri-state driver. File: C:/Users/anacl/Downloads/elevator_state-machine/elevator_state-machine/elevador.vhd Line: 24
+Info (13060): One or more bidirectional pins are fed by always enabled tri-state buffers
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "andar_selecionado[2]" is moved to its source File: C:/Users/anacl/Downloads/elevator_state-machine/elevator_state-machine/elevador.vhd Line: 24
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "andar_selecionado[1]" is moved to its source File: C:/Users/anacl/Downloads/elevator_state-machine/elevator_state-machine/elevador.vhd Line: 24
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "andar_selecionado[0]" is moved to its source File: C:/Users/anacl/Downloads/elevator_state-machine/elevator_state-machine/elevador.vhd Line: 24
+Warning (13009): TRI or OPNDRN buffers permanently enabled
+    Warning (13010): Node "andar_selecionado[2]~synth" File: C:/Users/anacl/Downloads/elevator_state-machine/elevator_state-machine/elevador.vhd Line: 24
+    Warning (13010): Node "andar_selecionado[1]~synth" File: C:/Users/anacl/Downloads/elevator_state-machine/elevator_state-machine/elevador.vhd Line: 24
+    Warning (13010): Node "andar_selecionado[0]~synth" File: C:/Users/anacl/Downloads/elevator_state-machine/elevator_state-machine/elevador.vhd Line: 24
+Info (17049): 3 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "clk" File: C:/Users/anacl/Downloads/elevator_state-machine/elevator_state-machine/elevador.vhd Line: 6
 Info (21057): Implemented 4 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 1 input pins
-    Info (21059): Implemented 3 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 10 warnings
-    Info: Peak virtual memory: 4842 megabytes
-    Info: Processing ended: Mon Oct 17 21:34:52 2022
-    Info: Elapsed time: 00:00:16
-    Info: Total CPU time (on all processors): 00:00:42
+    Info (21059): Implemented 0 output pins
+    Info (21060): Implemented 3 bidirectional pins
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 14 warnings
+    Info: Peak virtual memory: 4834 megabytes
+    Info: Processing ended: Tue Oct 18 08:07:10 2022
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:28
 
 
