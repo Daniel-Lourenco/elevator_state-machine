@@ -13,6 +13,6 @@ Essa máquina de estado pode ser representada pelo seguinte diagrama:
   <img align="rigth" src="https://user-images.githubusercontent.com/67913073/192736340-629e659b-4ea2-4f1a-bcd4-2c058fbc8d64.png">
 </p>
 
-Este projeto tem como objetivo realizar a implementação em VHDL da máquina de estados supracitada, e faz parte da disciplina de **Sistemas Digitais Programáveis** ministrada pelo docente Fabiano Fumes no curso de Engenharia de Controle e Automação do IFSP - Campus Salto. A explicação sobre a implementação em VHDL pode ser encontrada no arquivo [Máquina de Estados - Elevador.pdf](Máquina de Estados - Elevador.pdf), assim como código em VHDL pode ser encontrado em [elevador.vhd](elevador.vhd)
+Este projeto tem como objetivo realizar a implementação em VHDL da máquina de estados supracitada, e faz parte da disciplina de **Sistemas Digitais Programáveis** ministrada pelo docente Fabiano Fumes no curso de Engenharia de Controle e Automação do IFSP - Campus Salto. A explicação sobre a implementação em VHDL pode ser encontrada na apresentação [Máquina de Estados - Elevador](https://github.com/Daniel-Lourenco/elevator_state-machine/blob/main/M%C3%A1quina%20de%20Estados%20-%20Elevador.pdf), assim como código em VHDL pode ser encontrado em [elevador.vhd](elevador.vhd)
 
 
